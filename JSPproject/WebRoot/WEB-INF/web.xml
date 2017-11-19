@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name></display-name>
+  <servlet>
+    <description>this is test7</description>
+    <display-name>test7</display-name>
+    <servlet-name>Test1</servlet-name>
+    <servlet-class>com.edmund.tool.Test1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Test1</servlet-name>
+    <url-pattern>/Test1.do</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>this is my test2 servlet</description>
+    <display-name>Test2</display-name>
+    <servlet-name>Test2</servlet-name>
+    <servlet-class>com.edmund.tool.Test2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Test2</servlet-name>
+    <url-pattern>/Test2</url-pattern>
+  </servlet-mapping>
+</web-app>

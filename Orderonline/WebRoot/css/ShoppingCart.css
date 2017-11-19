@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+
+.table {
+	margin: auto;
+}
+
+tr {
+	background-color: rgba(200, 200, 200, 0.2);
+}
+
+td {
+	width: 200px;
+	height: 60px;
+	text-align: center;
+}
+
+.bottom1,.bottom2,.bottom3 {
+	float: left;
+	color: rgb(255, 51, 0);
+	font-weight: bold;
+	font-size: 18px;
+}
+.orderhead,.orderhead2,.orderhead3{
+	float: left;
+	color: rgb(255, 51, 0);
+	font-weight: bold;
+	font-size: 15px;
+	margin:5px 20px 5px 20px;
+	
+}
+.orderhead2{
+	float: right;
+}
+.orderhead3{
+	float: right;
+	background-color: rgba(255, 151, 0,0.2);
+	border:1px red solid;
+}
+
+.bottom1 {
+	margin-left: 50px;
+}
+
+.bottom2 {
+	margin-left: 550px;
+}
+
+.bottom3 {
+	position: absolute;
+	right: 10px;
+}
+
+.a1 {
+	color: rgb(255, 51, 0);
+	text-decoration: none;
+}
+
+.a1:VISITED,.a1:link {
+	
+}
+
+.a1:HOVER,.a1:ACTIVE {
+	color: rgb(255, 51, 0)
+}
+
+.numchange_minus,.num,.numchange_plus,.totalcount {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background-color: rgb(200, 200, 200);
+	float: left;
+	cursor: pointer;
+}
+
+.totalcount {
+	text-align: center;
+	cursor: default;
+	border: 1px solid rgba(10, 10, 10, 0.5);
+	border-width: 0px 0px 0px 1px;
+	font-size: 15px;
+	width: 23px
+}
+
+.num {
+	background-color: white;
+	text-align: center;
+	cursor: default;
+}
+
+.hp_divhead {
+	background-image: url("../img/logo.jpg");
+}
+
+.hp_divfoot {
+	background-image: url("../img/foot.jpg");
+	font-size: 12px;
+	text-align: center
+}
+
+#chooseALL,#cancel {
+	cursor: pointer;
+}

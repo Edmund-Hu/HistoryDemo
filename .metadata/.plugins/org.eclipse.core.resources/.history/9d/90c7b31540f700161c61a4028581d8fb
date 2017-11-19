@@ -1,0 +1,20 @@
+package com.edmund.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.edmund.dao.UserDao2;
+@Service("userservice2")
+public class UserService2 {
+	
+	private UserDao2 userDao;
+	@Autowired
+	public void setUserDao(@Qualifier("userdao2")UserDao2 userDao) {
+		this.userDao = userDao;
+	}
+
+	public void UserDetails(){
+		System.out.println("通过service2方法打印："+userDao.getUser());
+	}
+}

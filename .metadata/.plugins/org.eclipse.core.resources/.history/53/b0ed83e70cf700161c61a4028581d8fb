@@ -1,0 +1,13 @@
+package com.edmund.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.edmund.entity.User;
+
+public class userTest {
+ public static void main(String[] args) {
+	 ApplicationContext ctx =new  ClassPathXmlApplicationContext("applicationContext.xml");
+	User user = ctx.getBean("user");
+ }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=
+    "http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd">
+      <bean id="user" class="com.edmund.entity.User" >
+      	<property name="id" value="2"></property>
+      	<property name="name" value="bbbbb"></property>
+      </bean> 
+      <!-- setter方法注入 -->
+      <bean id="user2" class="com.edmund.entity.User" >
+      	<property name="id" value="3"></property>
+      	<property name="name" value="cccccc"></property>
+      </bean> 
+      <!-- 构造函数注入 -->
+      <bean id="user3" class="com.edmund.entity.User" >
+      	<constructor-arg index="0" value="4"></constructor-arg>
+      	<constructor-arg index="1" value="dddddd"></constructor-arg>
+      </bean>
+       <bean id="user3" class="com.edmund.entity.User" >
+      	<constructor-arg index="0" value="4"></constructor-arg>
+      	<constructor-arg index="1" value="dddddd"></constructor-arg>
+      </bean>
+      
+      
+        
+</beans>

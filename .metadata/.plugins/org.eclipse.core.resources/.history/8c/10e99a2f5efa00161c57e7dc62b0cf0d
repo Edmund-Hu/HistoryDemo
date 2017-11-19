@@ -1,0 +1,10 @@
+package com.edmund.advice;
+
+import org.aspectj.lang.JoinPoint;
+
+public class UserServiceAspect {
+	public void dobefore(JoinPoint jp){
+		System.out.println("方法前");
+	}
+
+}

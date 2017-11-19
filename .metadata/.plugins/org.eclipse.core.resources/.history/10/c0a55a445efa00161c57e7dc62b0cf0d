@@ -1,0 +1,5 @@
+package com.edmund.service;
+
+public interface UserServieint {
+	public void addUser(String str);
+}

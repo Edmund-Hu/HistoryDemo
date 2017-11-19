@@ -1,0 +1,23 @@
+package com.edmund.quartzTest;
+
+import java.util.Date;
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+import org.quartz.JobKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class SimpleJob implements Job {
+	private static Logger _log = LoggerFactory.getLogger(SimpleJob.class);
+	public SimpleJob(){}
+
+	@Override
+	public void execute(JobExecutionContext context) throws JobExecutionException {
+		// TODO Auto-generated method stub
+		JobKey jobKey = context.getJobDetail().getKey();
+		 _log.info("SimpleJob says: " + jobKey + " executing at " + new Date()+"我是任务内容");
+	}
+	
+}

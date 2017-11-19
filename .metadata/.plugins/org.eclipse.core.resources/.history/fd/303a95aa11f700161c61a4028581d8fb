@@ -1,0 +1,10 @@
+package com.edmund.service;
+
+import com.edmund.dao.UserDao;
+
+public class UserService {
+	private UserDao userDao;
+	public void UserDetails(){
+		System.out.println(userDao.getUser());
+	}
+}

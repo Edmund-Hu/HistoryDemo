@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation=
+    "http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context 
+ 	 http://www.springframework.org/schema/context/spring-context.xsd
+ 	 http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+ 	 <!-- 扫描注解 -->
+	 <context:component-scan base-package="com.edmund"/>
+	 
+	 	<bean id="userAspect" class="com.edmund.advice.UserAdvice"></bean>
+ 	<bean id="userServiceImp" class="com.edmund.service.imp.UserServiceImp"></bean>
+	 <aop:config>
+		<aop:aspect id="userAop" ref="userAspect">
+			<aop:pointcut expression="execution(* com.edmund.service.*.*(..))" id="UserServiceAop"/>
+			<aop:before method="doBefore" pointcut-ref="UserServiceAop"/>
+			<aop:after method="doAfter" pointcut-ref="UserServiceAop"/>
+			<aop:around method="doAround" pointcut-ref="UserServiceAop"/>
+		</aop:aspect>
+	</aop:config>
+	 
+	 
+	 
+	 
+      <bean id="user" class="com.edmund.entity.User" >
+      	<property name="id" value="2"></property>
+      	<property name="name" value="bbbbb"></property>
+      </bean> 
+      <!-- setter方法注入 -->
+      <bean id="user2" class="com.edmund.entity.User" >
+      	<property name="id" value="3"></property>
+      	<property name="name" value="cccccc"></property>
+      </bean> 
+  	 <!-- 构造函数注入 -->
+      <bean id="user3" class="com.edmund.entity.User" >
+      	<constructor-arg index="0" value="4"></constructor-arg>
+      	<constructor-arg index="1" value="dddddd"></constructor-arg>
+      </bean>
+      <bean id="user4" class="com.edmund.entity.User" >
+      	<constructor-arg  index = "0" type="int" value="4"></constructor-arg>
+      	<constructor-arg index = "1"  type="String" value="dddddd"></constructor-arg>
+      </bean> 
+       <bean id = "userdao" class="com.edmund.dao.UserDao">
+      	<property name = "user" ref="user4"></property>
+      </bean>
+      <bean id ="userservice" class="com.edmund.service.UserService">
+      	<property name="userDao" ref="userdao"></property>
+      </bean>
+      <bean id ="myUser" class="com.edmund.entity.User2">
+      	<property name="id" value="2"></property>
+      	<property name="name" value="bbbbb2"></property>
+      	<property name="hobbies">
+      		<list>
+      			<value>唱歌</value>
+      			<value>跳舞</value>
+      		</list>
+      	</property>
+      		<property name="hobbies2">
+      		<set>
+      			<value>唱歌1</value>
+      			<value>跳舞1</value>
+      		</set>
+      	</property>
+
+      	<property name="hobbies3">
+      		<map>
+				<entry>
+					<key><value>上午</value></key>
+					<value>写代码</value>
+				</entry>	
+				<entry>
+					<key><value>下午</value></key>
+					<value>还写代码</value>
+				</entry>		
+			</map>		
+      	</property>
+      </bean>
+     
+      <context:property-placeholder location="classpath:jdbc.properties"/>
+
+ <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   <property name="driverClassName" value="${driverClassName}"/>
+    <property name="url" value="${url}"/>
+    <property name="username" value="${name}"/>
+    <property name="password" value="${password}"/>
+ <!--   连接池启动时的初始值 -->
+	 <property name="initialSize" value="${initialSize}"/>
+<!-- 	 连接池的最大值 -->
+	 <property name="maxActive" value="${maxActive}"/>
+	<!--  最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+	 <property name="maxIdle" value="${maxIdle}"/>
+<!-- 	  最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+	 <property name="minIdle" value="${minIdle}"/>
+  </bean> 
+  
+<!--   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+<property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+<property name="url"><value>jdbc:mysql://localhost:3306/orderonline</value></property>
+<property name="username"><value>root</value></property>
+<property name="password"><value>root</value></property>
+<property name="initialSize" value="1"/>
+<property name="maxActive" value="500"/>
+<property name="maxIdle" value="2"/>
+<property name="minIdle" value="1"/>
+
+</bean> -->
+  
+  
+   <!-- JDBC Templete -->
+ <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"  >
+        <property name="dataSource" ref="dataSource"> </property>
+ </bean> 
+      
+      
+      
+        
+</beans>

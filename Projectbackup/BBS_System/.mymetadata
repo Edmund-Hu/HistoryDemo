@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="BBS_System"
+  id="myeclipse.1471935875208"
+  context-root="/BBS_System"
+  j2ee-spec="6.0"
+  archive="BBS_System.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

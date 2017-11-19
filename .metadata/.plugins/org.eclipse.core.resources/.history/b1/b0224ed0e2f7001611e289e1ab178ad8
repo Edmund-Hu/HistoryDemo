@@ -1,0 +1,31 @@
+package com.edmund.service;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.edmund.dao.UserDao2;
+@Service
+public class UserService2 {
+	
+	private UserDao2 userDao;
+	@Autowired
+	public void setUserDao(@Qualifier("userdao2")UserDao2 userDao) {
+		this.userDao = userDao;
+	}
+
+	public void UserDetails(){
+		System.out.println("通过service2方法打印："+userDao.getUser());
+	}
+	@PostConstruct
+	public void postConsrtuct(){
+		System.out.println("我是postConsrtuct方法");
+	}
+	@PreDestroy
+	public void preDestory(){
+		System.out.println("我是preDestory方法");
+	}
+}

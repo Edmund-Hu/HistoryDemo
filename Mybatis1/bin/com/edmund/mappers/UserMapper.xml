@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edmund.mappers.UserMapper">
+
+	<resultMap type="User" id="UserResult">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<!--方法一  -->
+		<!-- <result property="address.id" column="addressId"/>
+		<result property="address.sheng" column="sheng"/>
+		<result property="address.shi" column="shi"/>
+		<result property="address.qu" column="qu"/> -->
+		
+		
+		<!--  方法二-->
+		<!-- <association property="address" resultMap="AddressResult"></association>
+		 -->
+		 
+		 <!--  方法三-->
+		<!--  <association property="address" javaType="Address">
+		 	<result property="id" column="id"/>
+			<result property="sheng" column="sheng"/>
+			<result property="shi" column="shi"/>
+			<result property="qu" column="qu"/>
+		 </association> -->
+		 <!--方法四  -->
+		 <!-- 将User里面的外键addressId传给AddressMapper的findBYId方法，直接调用select方法，开发中比较常用 -->
+		 <association property="address" column="addressId" select="com.edmund.mappers.AddressMapper.findById"></association>
+		 <association property="grade" column="gradeId" select="com.edmund.mappers.GradeMapper.findById"></association>
+	</resultMap>
+	<resultMap type="Address" id="AddressResult">
+		<result property="id" column="id"/>
+		<result property="sheng" column="sheng"/>
+		<result property="shi" column="shi"/>
+		<result property="qu" column="qu"/>
+	</resultMap>
+	<insert id="add"  parameterType="User">
+		insert into user values(null,#{name},#{password})
+	</insert>
+	<update id="update" parameterType="User">
+		update user set name=#{name}, password=#{password} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		delete from user where id = #{id}
+	</delete>
+	<select id="findById" parameterType="Integer" resultType="User">
+		select * from user where id = #{id}
+	</select>
+	<select id="findAll" resultMap="UserResult">
+		select * from user
+	</select>
+	<select id="findByIdWithAddress" parameterType="Integer" resultMap="UserResult">
+		select * from user t1, address t2 where t1.addressId=t2.id and t1.id = #{id}
+	</select>
+		<select id="findByGradeId" parameterType="Integer" resultMap="UserResult">
+		select * from user where gradeId = #{gradeId}
+	</select>
+	
+</mapper>

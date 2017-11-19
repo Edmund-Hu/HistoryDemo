@@ -1,0 +1,56 @@
+package StuMagrSys;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import com.Edmund_8_11.mj;
+
+public class AddStudents {
+	public static  void Addstu(){
+		System.out.println("欢迎进入学生添加系统");
+		Scanner SC =new Scanner(System.in);
+		Input input=new Input();
+			System.out.println("请输入学生年龄，整型");
+			input.input();
+			int age =Input.ans;
+			System.out.println("请输入学生姓名");
+			String name =SC.next();	
+			System.out.println("请输入学生性别");
+			String sex =String.valueOf(SC.next().charAt(0));	 
+			System.out.println("请输入学生成绩");
+			input.Score();
+			double score =Input.score;
+			System.out.println("确认要添加吗？y/n");
+			String ans= SC.next();
+			if(ans.equalsIgnoreCase("y")){
+				mj.dConn();
+				String sql =" insert into stu(name,sex,age,score) values(?,?,?,?)";
+				try {
+					mj.pstmt=mj.conn.prepareStatement(sql);
+					mj.pstmt.setString(1, name);
+					mj.pstmt.setString(2, sex);
+					mj.pstmt.setInt(3, age);
+					mj.pstmt.setDouble(4, score);
+					mj.pstmt.executeUpdate();
+					System.out.println("添加成功！");
+					
+				} catch (SQLException e) {
+					System.out.println("添加失败");
+					e.printStackTrace();
+				}
+					
+			}else{
+				System.out.println("放弃添加");
+			}
+			System.out.println("继续添加？y/n");
+			String ans2= SC.next();
+			if(ans2.equalsIgnoreCase("n")){
+				MainPage.MianPage();
+				
+			}else{
+				Addstu();
+			}
+		
+		}
+	
+}

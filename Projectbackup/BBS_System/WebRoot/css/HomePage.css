@@ -1,0 +1,122 @@
+@CHARSET "UTF-8";
+
+  body{background-image:url(../img/hompage.jpg)}
+#container{
+    width: 800px;height:600px;margin: auto;border:0px dashed red;margin-top:95px ;position: relative;
+}
+    #div1{
+        float: left;
+        width: 20%;
+        height: 100%;
+        border:0px dashed red;
+        position: relative;
+        left: 0px;
+        background-image: url(../img/div1.jpg);
+    }
+#div2{
+    float: right;
+    width: 78%;
+    height: 90%;
+    border:0px dashed blue;
+    position: relative;
+    right: 0px;
+    background-image: url(../img/divback.jpg);
+}
+    #div3{
+        float: right;
+        width: 78%;
+        height: 50px;
+        border:0px dashed blue;
+        position: relative;
+        top: 6px;
+        color: rgb(150,150,150);
+        font-size: 10px;
+        text-align: center;
+        line-height: 50px;
+        background-color: white;
+    }
+    .label{
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        height: 20px;
+        line-height: 28px;
+        font-family: Microsoft YaHei;
+    }
+    .user{
+		display:block;
+        float: left;
+        border:0px dashed blue;
+        width: 120px;
+        height: 20px;
+        margin-left:25px ;
+        margin-top: 5px;
+        font-family: Microsoft YaHei;
+        font-size: 13px;
+		text-decoration: none;
+		color:black;
+		 background:rgba(100,100,100,0.3);
+		 
+    }
+    
+ #button1{
+ width: 80px; 
+ height: 25px;
+ line-height: 25px;
+  background-color: rgb(200,200,200); 
+  position: absolute; 
+  top:-25px;
+  right:100px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+   border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+       
+ }
+ 
+ #button2{
+ width: 80px; 
+ height: 25px;
+ line-height: 25px;
+  background-color: rgb(200,200,200); 
+  position: absolute; 
+  top:-25px;
+  right:10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+   border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+ }
+ 
+ 
+    .time{
+        float: left;
+        width: 320px;
+        height: 20px;
+        margin-left:5px ;
+        margin-top: 5px;
+        background-color: rgb(200,200,200);
+        border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+    }
+    .content{
+        float: left;
+        width: 590px;
+       
+        margin-left:30px ;
+        margin-top: 5px;
+        background-color: aliceblue;
+        border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        
+        
+    }
+    
+    a{
+    text-decoration: none; color:black;

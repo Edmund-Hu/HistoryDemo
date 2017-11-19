@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"></properties>
+	<!-- 	<properties>
+		<property name="" value=""/>
+	</properties> -->
+	<!-- 配置类型别名 -->
+<!-- 	<typeAliases>
+		<typeAlias alias="User" type="com.edmund.entity.User"></typeAlias>
+	</typeAliases> -->
+	<typeAliases>
+		<package name="com.edmund.entity"/> <!--定义所有实体类类名为别名  -->
+	</typeAliases>	
+	<environments default="development">
+		<environment id="development">
+		<!--数据库事务管理模式JDBC/MANAGED(托管)  -->
+		<transactionManager type="JDBC"/>
+		<dataSource type="POOLED"><!--UNPOOLED,JDNI  -->
+			<property name="driver" value="${jdbc.driver}"/>
+			<property name="url" value="${jdbc.url}"/>
+			<property name="username" value="${jdbc.username}"/>
+			<property name="password" value="${jdbc.password}"/>
+		</dataSource>
+		</environment>
+	</environments>
+	<!--引入映射文件  -->
+	<mappers>
+		<!-- <mapper resource="com/edmund/mappers/UserMapper.xml"/> -->
+		<!-- <mapper class="com.edmund.mappers.UserMapper" /> -->
+		<package name="com.edmund.mappers" />
+	</mappers>
+</configuration>

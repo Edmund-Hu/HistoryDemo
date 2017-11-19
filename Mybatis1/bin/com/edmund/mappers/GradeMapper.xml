@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edmund.mappers.GradeMapper">
+
+	<resultMap type="Grade" id="GradeResult">
+		<id property="id" column="id"/>
+		<result property="gradeName" column="grageName"/>
+		<collection property="users" column="id" select="com.edmund.mappers.UserMapper.findByGradeId"></collection>
+	</resultMap>
+	
+
+	<select id="findById" parameterType="Integer" resultMap="GradeResult">
+		select * from grade where id = #{id}
+	</select>
+
+</mapper>

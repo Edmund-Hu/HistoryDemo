@@ -1,0 +1,5 @@
+package com.edmund.dao;
+
+public class UserDao {
+
+}

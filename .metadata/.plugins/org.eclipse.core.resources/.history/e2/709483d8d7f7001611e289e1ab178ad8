@@ -1,0 +1,33 @@
+package com.edmund.test;
+
+import static org.junit.Assert.*;
+
+import org.apache.log4j.Logger;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class JuitTest {
+	private static Logger log = Logger.getLogger(JunitDepartTest.class);
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("测试方法执行之前before");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		System.out.println("测试方法执行之后after");
+	}
+
+	@Test
+	public void test() {
+		System.out.println("我是测试方法");
+	}
+	@Test
+	public void test2() {
+		System.out.println("我是测试方法2");
+	}
+
+}

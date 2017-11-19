@@ -1,0 +1,5 @@
+package com.edmund.entity;
+
+public class User {
+
+}

@@ -1,0 +1,15 @@
+package com.edmund.service;
+
+import com.edmund.dao.UserDao;
+
+public class UserService2 {
+	private UserDao userDao;
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	public void UserDetails(){
+		System.out.println("通过service方法打印："+userDao.getUser());
+	}
+}

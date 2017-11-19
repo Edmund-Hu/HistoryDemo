@@ -1,0 +1,17 @@
+package com.edmund.demo;
+
+public class ClassLoaderTest {
+	private static ClassLoaderTest classLoaderTest = new ClassLoaderTest();
+	private static int counter1;
+	private static int counter2 = 0 ;
+	private ClassLoaderTest(){
+		counter1++;
+		counter2++;
+	}
+	public static ClassLoaderTest getInstance(){
+		return classLoaderTest;
+	}
+}
+public class test(){
+	
+}

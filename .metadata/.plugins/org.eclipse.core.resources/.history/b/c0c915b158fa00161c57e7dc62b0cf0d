@@ -1,0 +1,5 @@
+package com.edmund.advice;
+
+public class UserServiceAspect {
+
+}

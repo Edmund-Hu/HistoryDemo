@@ -1,0 +1,44 @@
+package com.edmund.entity;
+
+import java.util.List;
+
+public class User2 {
+	private int id;
+	private String name;
+	private List<String> hobbies;
+	private Set<String> hobbies;
+	
+	public List<String> getHobbies() {
+		return hobbies;
+	}
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
+	public User2(){};
+	public User2(int id, String name){
+		this.id= id;
+		this.name = name;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "User2 [id=" + id + ", name=" + name + ", hobbies=" + hobbies + "]";
+	}
+	
+	
+
+	
+	
+}

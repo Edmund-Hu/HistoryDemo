@@ -1,0 +1,6 @@
+package com.edmund.demo;
+
+public class ClassLoaderTest {
+	private static ClassLoaderTest classLoaderTest = new ClassLoaderTest();
+	
+}

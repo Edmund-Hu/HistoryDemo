@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="UserBlock"
+  id="myeclipse.1471783809370"
+  context-root="/UserBlock"
+  j2ee-spec="6.0"
+  archive="UserBlock.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

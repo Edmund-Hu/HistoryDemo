@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edmund.mapper.DepartMapper">
+
+	<select id="findDepartById" parameterType="Integer" resultType="Depart">
+		select * from depart where id = #{id}
+	</select>
+	
+	<resultMap type="Depart" id="DepartResultMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="count" column="count"/>
+		<collection property="users" column="id" select="com.edmund.mapper.UserMapper.findUserByDepartId"></collection>
+	</resultMap>
+	
+	<select id="findDepartWithUsers" parameterType="int" resultMap="DepartResultMap">
+		select * from depart where id = #{id}
+	</select>
+	
+</mapper>

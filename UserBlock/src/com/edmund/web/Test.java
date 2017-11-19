@@ -1,0 +1,28 @@
+package com.edmund.web;
+
+public class Test {
+
+	public static void main(String[] args) {
+		mj.dConn();
+		String username="vhudp";
+	
+		String sql="select username from userinfo where username="+"'"+username+"'";
+		System.out.println(sql);
+		System.out.println("Á´½Ó");
+		if(!mj.queryExist(sql,username)){
+			System.out.println("²»´æÔÚ");
+		}else{
+			System.out.println("´æÔÚ");
+		}
+	/*	String username2="Edmund";
+		String password="18723";
+		String sex="ÄÐ";
+		String email="edmund@163.com";
+	
+		if(mj.updatedata(username2, password, sex, email)){
+			System.out.println("¹þ¹þ¹þ");
+		}else{
+			System.out.println("oooopoo");
+		}*/
+	}
+}

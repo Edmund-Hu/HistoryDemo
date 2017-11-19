@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+ body{
+        font-family: "Microsoft YaHei";
+    }
+    .hp_divhead,.hp_divsearch,.hp_divfoot{width: 1000px;height: 60px;margin: auto;overflow: hidden;position: relative;
+    line-height:60px;font-size: 20px; }
+    .hp_divhead {background-image: url("../img/logo.jpg");}
+    .hp_divfoot{background-image: url("../img/foot.jpg");font-size: 12px;text-align: center}
+     .hp_logobefore{margin-left: 10px;letter-spacing: 5px;}
+    .hp_logoafter{margin-left: 150px;letter-spacing: 5px;}
+    .hp_logoright{float:right;margin: 0 5px 0 5px;  }
+
+   span a{ color: black; text-decoration: none;}
+    a:link,a:visited{}
+    span a:hover,span a:active{color:white}
+
+  tr{ background-color:rgba(255,190,0,0.6);}
+  td{width:100px;height:30px; text-align: center;}
+  .bottom1,.bottom2,.bottom3{float:left;color:rgb(255,51,0);font-weight: bold;font-size:18px;}
+  .bottom1{margin-left:50px;}
+  .bottom2{margin-left:550px;}
+  .bottom3{position:absolute; right:10px;}
+      .hp_divsoushuo,.hp_divshoppingCart{position:relative;left:640px;top:10px; height:36px;
+        line-height:36px;width:60px;background-color: rgb(255,248,0);float:left;}
+    .hp_divshoppingCart{left:900px;width:100px;text-align: center}
+  
+ .a1 {color:rgb(255,51,0); text-decoration: none;}
+    .numchange_minus,.num,.numchange_plus{width:20px;height:20px;line-height:20px;background-color:rgba(200,200,200,0.6);float:left;cursor: pointer;}
+  	    .numchange_minus{margin-left:15px;}
+  	.num{background-color:white;text-align:center;cursor:default;}
+  	    .hp_divhead {background-image: url("../img/logo.jpg");}
+    .hp_divfoot{background-image: url("../img/foot.jpg");font-size: 12px;text-align: center}
+    .imglist{cursor: pointer;}
+      .imglist1{cursor: pointer;visibility: hidden;}
+    .button{ width:100px; height:30px; background-color: rgba(255,231,0,1);
+    border:1px solid red;border-radius:5px;margin:20px 0px 0px 50px; 
+    text-align:center;font-family: "Microsoft YaHei";font-size:16px;
+     font-weight:bold; }
+     .cart{float:right;background-color: red; width:20px;height:20px;border-radius:10px;font-size:13px;line-height:20px;}
+     

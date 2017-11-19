@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+@CHARSET "UTF-8";
+
+     #login{
+        position:relative;
+        border:0px dashed red;
+        width: 208px;
+        height: 120px;
+    margin:auto;
+    margin-top:30px;
+    }
+.td1{
+    font-size: 12px;width: 60px;color: darkgreen;
+}
+    .input{
+        width: 130px;
+        background-color:khaki;
+    }
+    #divinfo{
+         border:0px dashed red;
+         margin：auto;
+        margin-top: 100px;
+        text-align:center;
+        font-size:25px;
+        color:red;
+    }

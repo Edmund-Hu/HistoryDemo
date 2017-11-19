@@ -1,0 +1,11 @@
+package com.edmund.dao;
+
+import com.edmund.entity.User;
+
+public class UserDao {
+	private  User user;
+	
+	public User getUser(){
+		
+	}
+}

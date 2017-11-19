@@ -1,0 +1,10 @@
+package com.edmund.advice;
+
+import sun.security.provider.VerificationProvider;
+
+public class UserServiceAspect {
+	public void dobefore(){
+		System.out.println("方法前");
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.edmund.test;
+
+import java.util.HashMap;
+
+import com.edmund.entity.User;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setId(1);
+		user.setName("aaaaa");
+	
+		System.out.println(user);
+	}
+
+}

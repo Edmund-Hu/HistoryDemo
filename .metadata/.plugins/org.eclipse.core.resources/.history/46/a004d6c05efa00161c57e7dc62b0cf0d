@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="userAspect" class="com.edmund.advice.UserServiceAspect"></bean>
+ 	<bean id="userServiceImp" class="com.edmund.service.imp.UserServiceImp"></bean>
+	<aop:config>
+		<aop:aspect id="userAop" ref="userAspect">
+			<aop:pointcut expression="execution(* com.edmund.service.*.*(..))" id="UserServiceAop"/>
+			<aop:before method="doBefore" pointcut-ref="UserServiceAop"/>
+			<aop:after method="doAfter" pointcut-ref="UserServiceAop" />
+			<aop:around method="doAround" pointcut-ref="UserServiceAop"/>
+			<aop:after-returning method="doReturn" pointcut-ref="UserServiceAop"/>
+			<aop:after-throwing method="doException" pointcut-ref="UserServiceAop" throwing="ex"/>
+		</aop:aspect>
+	</aop:config>
+	<!-- <bean id="userdao" class="com.edmund.Dao.UserDao"></bean> -->
+	<!-- <bean id="userService" class="com.edmund.service.UserService">
+		<property name="udao" ref="userdao"></property>
+	</bean> -->
+	<!-- <bean id="controller" class="com.edmund.Controller.Controller">
+		<property name="userservice" ref="userService"></property>
+	</bean> -->
+<!-- 	<bean id="userController" class="com.edmund.Controller.UserController">
+		<property name="userdao" ref="userdao"></property>
+		<property name="userService" ref="userService"></property>
+	</bean> -->
+	<!-- 如果给bean添加scope="prototype"属性，默认的单例模式将被该变 -->
+	<bean id="user" class="com.edmund.entity.User">
+		<property name="name" value="张三丰"></property>
+		<property name="password" value="123"></property>
+	</bean>
+	
+	<bean id="user3" class="com.edmund.entity.User">
+		<!-- <constructor-arg type="String" value="张无忌"></constructor-arg>
+		<constructor-arg type="String" value="234"></constructor-arg> -->
+		<constructor-arg index = "0" value="张三"></constructor-arg>
+		<constructor-arg index = "1" value ="333"></constructor-arg>
+		<!-- index 和 type 同时使用也没问题 -->
+	</bean>
+	<!-- 工厂方法配置 -->
+	<bean id="userFactory" class="com.edmund.factory.UserFactory"></bean>
+	<bean id="user4" factory-bean="userFactory" factory-method="createUser"></bean>
+	<!-- 静态工厂方法配置 -->
+	<bean id="user5" class="com.edmund.factory.UserFactory2"  factory-method="createUser"></bean>
+	
+	<bean id="user2" class="com.edmund.entity.User2">
+		<property name="name" value="老四啊"></property>
+		<property name="age" value="32"></property>
+		<property name="user" ref="user"></property>
+		<property name="hobbies" >
+			<list>
+				<value>唱歌</value>
+				<value>跳舞</value>
+			</list>
+		</property>
+		<property name="loves">
+			<set>
+				<value>篮球</value>
+				<value>足球</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry>
+					<key><value>上午</value></key>
+					<value>写代码</value>
+				</entry>	
+				<entry>
+					<key><value>下午</value></key>
+					<value>还写代码</value>
+				</entry>		
+			</map>		
+		</property>
+		<property name="address">
+			<props>
+				<prop key="adrr1">aaaa</prop>
+				<prop key="adrr2">bbbb</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

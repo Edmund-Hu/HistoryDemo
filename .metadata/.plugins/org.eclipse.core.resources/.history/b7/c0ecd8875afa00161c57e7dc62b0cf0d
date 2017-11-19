@@ -1,0 +1,9 @@
+package com.edmund.advice;
+
+
+public class UserServiceAspect {
+	public void dobefore(){
+		System.out.println("方法前");
+	}
+
+}

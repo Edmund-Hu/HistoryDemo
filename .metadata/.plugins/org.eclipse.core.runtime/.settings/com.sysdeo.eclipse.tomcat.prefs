@@ -1,0 +1,9 @@
+contextsDir=\\conf\\Catalina\\localhost
+eclipse.preferences.version=1
+managerUrl=http\://localhost\:8080/manager
+projectsInCp=ShiroWeb;
+projectsInSourcePath=Shiro;ShiroWeb;
+tomcatBase=D\:\\Program Files (x86)\\apache-tomcat-8.0.29
+tomcatConfigFile=\\conf\\server.xml
+tomcatJRE=1481277318255
+tomcatVersion=tomcatV3

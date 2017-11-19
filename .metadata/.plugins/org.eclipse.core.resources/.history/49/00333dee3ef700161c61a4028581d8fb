@@ -1,0 +1,21 @@
+package com.edmund.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.edmund.entity.User;
+@Repository
+public class UserDao2 {
+	private  User user;
+	
+	@Autowired
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public User getUser(){
+		System.out.println("进入userDao2");
+		return user;
+	}
+}

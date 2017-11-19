@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation=
+    "http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context 
+ 	 http://www.springframework.org/schema/context/spring-context.xsd
+ 	 http://www.springframework.org/schema/aop
+ 	 http://www.springframework.org/schema/aop/spring-aop.xsd">
+ 	 <!-- 扫描注解 -->
+	 <context:component-scan base-package="com.edmund"/>
+	
+	
+	 
+      <bean id="user" class="com.edmund.entity.User" >
+      	<property name="id" value="2"></property>
+      	<property name="name" value="bbbbb"></property>
+      </bean> 
+      <!-- setter方法注入 -->
+      <bean id="user2" class="com.edmund.entity.User" >
+      	<property name="id" value="3"></property>
+      	<property name="name" value="cccccc"></property>
+      </bean> 
+      <!-- 构造函数注入 -->
+      <bean id="user3" class="com.edmund.entity.User" >
+      	<constructor-arg index="0" value="4"></constructor-arg>
+      	<constructor-arg index="1" value="dddddd"></constructor-arg>
+      </bean>
+      <bean id="user4" class="com.edmund.entity.User" >
+      	<constructor-arg  index = "0" type="int" value="4"></constructor-arg>
+      	<constructor-arg index = "1"  type="String" value="dddddd"></constructor-arg>
+      </bean>
+       <bean id = "userdao" class="com.edmund.dao.UserDao">
+      	<property name = "user" ref="user4"></property>
+      </bean>
+      <bean id ="userservice" class="com.edmund.service.UserService">
+      	<property name="userDao" ref="userdao"></property>
+      </bean>
+      <bean id ="myUser" class="com.edmund.entity.User2">
+      	<property name="id" value="2"></property>
+      	<property name="name" value="bbbbb2"></property>
+      	<property name="hobbies">
+      		<list>
+      			<value>唱歌</value>
+      			<value>跳舞</value>
+      		</list>
+      	</property>
+      		<property name="hobbies2">
+      		<set>
+      			<value>唱歌1</value>
+      			<value>跳舞1</value>
+      		</set>
+      	</property>
+
+      	<property name="hobbies3">
+      		<map>
+				<entry>
+					<key><value>上午</value></key>
+					<value>写代码</value>
+				</entry>	
+				<entry>
+					<key><value>下午</value></key>
+					<value>还写代码</value>
+				</entry>		
+			</map>		
+      	</property>
+      </bean>
+     <bean id = "userAspect" class="com.edmund.advice.UserServiceAspect"></bean>
+     <bean id = "userServiceImp" class ="com.edmund.service.imp.UserServiceimp"></bean>
+       <aop:config>
+	 	<aop:aspect id="userAop" ref="userAspect">
+			<aop:pointcut expression="execution(* com.edmund.service.*.*(..))" id="UserServiceAop"/>
+			<aop:before method="doBefore" pointcut-ref="UserServiceAop"/>
+		</aop:aspect>
+	 
+	 </aop:config>
+      
+      
+        
+</beans>

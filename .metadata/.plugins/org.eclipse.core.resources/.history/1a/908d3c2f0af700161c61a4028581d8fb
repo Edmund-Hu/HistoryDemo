@@ -1,0 +1,9 @@
+package com.edmund.entity;
+
+import com.sun.deploy.uitoolkit.impl.fx.ui.UITextArea;
+
+public class User {
+	private int id;
+	private String name;
+	
+}
